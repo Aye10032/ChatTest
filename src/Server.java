@@ -16,7 +16,7 @@ public class Server {
     }
 
     public void start() throws IOException {
-        ServerSocket serverSocket = new ServerSocket(6655);
+        ServerSocket serverSocket = new ServerSocket(3614);
         while (true) {
             Socket client = serverSocket.accept();
 
@@ -30,11 +30,12 @@ public class Server {
         private DataInputStream dis;
         private DataOutputStream dos;
         private boolean isRunning = true;
+        private String name;
 
         @Override
         public void run() {
             while (isRunning) {
-                sendOthers();
+                sendOthers(receiveText());
             }
         }
 
@@ -42,6 +43,10 @@ public class Server {
             try {
                 dis = new DataInputStream(client.getInputStream());
                 dos = new DataOutputStream(client.getOutputStream());
+
+                this.name = dis.readUTF();
+                send(this.name + ", welcome!");
+                sendOthers(this.name + " 加入了");
             } catch (IOException e) {
                 isRunning = false;
                 CloseUtil.closeAll(dis, dos);
@@ -70,13 +75,12 @@ public class Server {
             } catch (IOException e) {
                 CloseUtil.closeAll(dos);
                 isRunning = false;
+                sendOthers(this.name + "离开了");
                 clients.remove(this);
             }
         }
 
-        private void sendOthers() {
-            String msg = receiveText();
-
+        private void sendOthers(String msg) {
             for (Channel other : clients) {
                 if (other == this) {
                     continue;

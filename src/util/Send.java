@@ -11,11 +11,12 @@ public class Send implements Runnable {
     private BufferedReader consol;
     private DataOutputStream dos;
     private boolean isRunning = true;
+    private String name;
 
     @Override
     public void run() {
         while (isRunning) {
-            send();
+            send(getText());
         }
     }
 
@@ -23,10 +24,12 @@ public class Send implements Runnable {
         consol = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public Send(Socket client) {
+    public Send(Socket client, String name) {
         this();
         try {
             dos = new DataOutputStream(client.getOutputStream());
+            this.name = name;
+            send(name);
         } catch (IOException e) {
             isRunning = true;
             CloseUtil.closeAll(dos, consol);
@@ -42,8 +45,7 @@ public class Send implements Runnable {
         return "";
     }
 
-    public void send() {
-        String msg = getText();
+    public void send(String msg) {
         if (null != msg && !msg.equals("")) {
             try {
                 dos.writeUTF(msg);
