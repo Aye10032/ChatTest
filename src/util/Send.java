@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class Send implements Runnable{
+public class Send implements Runnable {
 
     private BufferedReader consol;
     private DataOutputStream dos;
@@ -14,27 +14,26 @@ public class Send implements Runnable{
 
     @Override
     public void run() {
-        while (isRunning){
+        while (isRunning) {
             send();
         }
     }
 
-    public Send(){
+    public Send() {
         consol = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public Send(Socket client){
+    public Send(Socket client) {
         this();
         try {
             dos = new DataOutputStream(client.getOutputStream());
         } catch (IOException e) {
-            e.printStackTrace();
             isRunning = true;
-            CloseUtil.closeAll(dos,consol);
+            CloseUtil.closeAll(dos, consol);
         }
     }
 
-    private String getText(){
+    private String getText() {
         try {
             return consol.readLine();
         } catch (IOException e) {
@@ -43,16 +42,15 @@ public class Send implements Runnable{
         return "";
     }
 
-    public void send(){
+    public void send() {
         String msg = getText();
-        if (null != msg&&msg.equals("")){
+        if (null != msg && !msg.equals("")) {
             try {
                 dos.writeUTF(msg);
                 dos.flush();
             } catch (IOException e) {
-                e.printStackTrace();
                 isRunning = false;
-                CloseUtil.closeAll(dos,consol);
+                CloseUtil.closeAll(dos, consol);
 
             }
         }
