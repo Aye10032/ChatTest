@@ -1,3 +1,4 @@
+import util.Receive;
 import util.Send;
 
 import java.io.IOException;
@@ -11,6 +12,8 @@ public class Client {
         Socket client = new Socket(inet, 6655);
 
         new Thread(new Send(client)).start();
+
+        new Thread(new Receive(client)).start();
     }
 
 }
