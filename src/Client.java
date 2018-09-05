@@ -1,6 +1,8 @@
 import util.Receive;
 import util.Send;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,16 +12,26 @@ import java.net.Socket;
 public class Client {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("input name");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String name = br.readLine();
 
-        InetAddress inet = InetAddress.getByName("106.12.35.79"/*"127.0.0.1"*/);
-        Socket client = new Socket(inet, 3614);
-
-        new Thread(new Send(client, name)).start();
-
-        new Thread(new Receive(client)).start();
+        String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+        try {
+            UIManager.setLookAndFeel(lookAndFeel);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        loginGUI window1 = new loginGUI();
+        window1.setTitle("chat");
+        int x = Toolkit.getDefaultToolkit().getScreenSize().width;
+        int y = Toolkit.getDefaultToolkit().getScreenSize().height;
+        window1.setBounds(x / 2 - 250, y / 2 - 150, 500, 300);
+        window1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window1.show();
     }
 
 }

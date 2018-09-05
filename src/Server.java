@@ -16,10 +16,10 @@ public class Server {
     }
 
     public void start() throws IOException {
-        ServerSocket serverSocket = new ServerSocket(3614);
+        ServerSocket serverSocket = new ServerSocket(14514);
         while (true) {
             Socket client = serverSocket.accept();
-
+            System.out.println(client.getInetAddress());
             Channel channel = new Channel(client);
             clients.add(channel);
             new Thread(channel).start();
@@ -35,7 +35,7 @@ public class Server {
         @Override
         public void run() {
             while (isRunning) {
-                sendOthers(receiveText());
+                sendOthers(this.name + " : " + receiveText());
             }
         }
 
@@ -82,9 +82,9 @@ public class Server {
 
         private void sendOthers(String msg) {
             for (Channel other : clients) {
-                if (other == this) {
+                /*if (other == this) {
                     continue;
-                }
+                }*/
                 other.send(msg);
             }
         }

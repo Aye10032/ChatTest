@@ -1,5 +1,6 @@
 package util;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -8,10 +9,9 @@ import java.net.Socket;
 
 public class Send implements Runnable {
 
-    private BufferedReader consol;
-    private DataOutputStream dos;
-    private boolean isRunning = true;
-    private String name;
+    private static BufferedReader consol;
+    private static DataOutputStream dos;
+    private static boolean isRunning = true;
 
     @Override
     public void run() {
@@ -28,7 +28,6 @@ public class Send implements Runnable {
         this();
         try {
             dos = new DataOutputStream(client.getOutputStream());
-            this.name = name;
             send(name);
         } catch (IOException e) {
             isRunning = true;
@@ -45,7 +44,7 @@ public class Send implements Runnable {
         return "";
     }
 
-    public void send(String msg) {
+    public static void send(String msg) {
         if (null != msg && !msg.equals("")) {
             try {
                 dos.writeUTF(msg);

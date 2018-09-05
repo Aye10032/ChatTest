@@ -1,5 +1,6 @@
 package util;
 
+import javax.swing.*;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -8,11 +9,12 @@ public class Receive implements Runnable {
 
     private DataInputStream dis;
     private boolean isRunning = true;
+    private JTextArea JA;
 
     @Override
     public void run() {
         while (isRunning) {
-            System.out.println(receiveText());
+            JA.append(receiveText() + "\n");
         }
     }
 
@@ -20,9 +22,10 @@ public class Receive implements Runnable {
 
     }
 
-    public Receive(Socket client) {
+    public Receive(Socket client, JTextArea txtlog) {
         try {
             dis = new DataInputStream(client.getInputStream());
+            this.JA = txtlog;
         } catch (IOException e) {
             isRunning = false;
             CloseUtil.closeAll(dis);
