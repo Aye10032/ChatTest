@@ -6,10 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bddaa664-8d28-4475-988a-e8acb3f4a42b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chatGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="bddaa664-8d28-4475-988a-e8acb3f4a42b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chatGUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chatGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chatGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+            <state relative-caret-position="107">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Receive.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Receive.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/Receive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+            <state relative-caret-position="304">
+              <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -145,10 +142,10 @@
         <option value="$PROJECT_DIR$/src/util/CloseUtil.java" />
         <option value="$PROJECT_DIR$/src/util/Send.java" />
         <option value="$PROJECT_DIR$/src/Server.java" />
-        <option value="$PROJECT_DIR$/src/util/Receive.java" />
         <option value="$PROJECT_DIR$/src/Client.java" />
         <option value="$PROJECT_DIR$/src/loginGUI.java" />
         <option value="$PROJECT_DIR$/src/chatGUI.java" />
+        <option value="$PROJECT_DIR$/src/util/Receive.java" />
       </list>
     </option>
   </component>
@@ -321,7 +318,7 @@
       <workItem from="1536061028907" duration="2955000" />
       <workItem from="1536134240802" duration="6907000" />
       <workItem from="1536141416648" duration="361000" />
-      <workItem from="1536212455661" duration="1128000" />
+      <workItem from="1536212455661" duration="1423000" />
     </task>
     <task id="LOCAL-00001" summary="完成client">
       <created>1535948614396</created>
@@ -365,19 +362,26 @@
       <option name="project" value="LOCAL" />
       <updated>1536212718040</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="滚动条自动更新">
+      <created>1536213768988</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1536213768988</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18433000" />
+    <option name="totallyTimeSpent" value="18728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32896653" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -385,11 +389,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32896653" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32896653" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32896653" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19906166" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19906166" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="ASM" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -398,7 +402,6 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988355" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32896653" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -446,7 +449,8 @@
     <MESSAGE value="添加用户名" />
     <MESSAGE value="图形界面" />
     <MESSAGE value="添加按键绑定" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加按键绑定" />
+    <MESSAGE value="滚动条自动更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="滚动条自动更新" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -897,16 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Receive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -949,8 +943,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chatGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        <state relative-caret-position="107">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Receive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
