@@ -15,12 +15,15 @@ public class chatGUI extends JFrame implements ActionListener, KeyListener {
     JLabel name = new JLabel("");
     public JTextArea txtlog = new JTextArea();
     JScrollPane jsp = new JScrollPane(txtlog);
+    JScrollBar JSB = jsp.getVerticalScrollBar();
     JTextField inputJF = new JTextField();
     JButton send = new JButton("send");
     String id;
     Socket client;
 
     public chatGUI(Socket client, String name) {
+
+        jsp.doLayout();
 
         this.name.setText(client.getInetAddress().getHostAddress());
         this.id = name;
@@ -45,7 +48,7 @@ public class chatGUI extends JFrame implements ActionListener, KeyListener {
         getContentPane().add(pd, BorderLayout.SOUTH);
 
         new Thread(new Send(client, name)).start();
-        new Thread(new Receive(client, txtlog)).start();
+        new Thread(new Receive(client, txtlog, JSB)).start();
 
         send.addActionListener(this);
         inputJF.addKeyListener(this);

@@ -10,11 +10,14 @@ public class Receive implements Runnable {
     private DataInputStream dis;
     private boolean isRunning = true;
     private JTextArea JA;
+    private JScrollBar JSB;
 
     @Override
     public void run() {
         while (isRunning) {
             JA.append(receiveText() + "\n");
+            if (JSB != null)
+                JSB.setValue(JSB.getMaximum());
         }
     }
 
@@ -22,10 +25,11 @@ public class Receive implements Runnable {
 
     }
 
-    public Receive(Socket client, JTextArea txtlog) {
+    public Receive(Socket client, JTextArea txtlog, JScrollBar JSB) {
         try {
             dis = new DataInputStream(client.getInputStream());
             this.JA = txtlog;
+            this.JSB = JSB;
         } catch (IOException e) {
             isRunning = false;
             CloseUtil.closeAll(dis);
