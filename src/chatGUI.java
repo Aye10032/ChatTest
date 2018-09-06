@@ -6,9 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.Socket;
 
-public class chatGUI extends JFrame implements ActionListener {
+public class chatGUI extends JFrame implements ActionListener, KeyListener {
 
     JLabel name = new JLabel("");
     public JTextArea txtlog = new JTextArea();
@@ -46,6 +48,7 @@ public class chatGUI extends JFrame implements ActionListener {
         new Thread(new Receive(client, txtlog)).start();
 
         send.addActionListener(this);
+        inputJF.addKeyListener(this);
     }
 
     @Override
@@ -56,5 +59,25 @@ public class chatGUI extends JFrame implements ActionListener {
             Send.send(inputJF.getText());
             inputJF.setText("");
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getSource() == inputJF) {
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                Send.send(inputJF.getText());
+                inputJF.setText("");
+            }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

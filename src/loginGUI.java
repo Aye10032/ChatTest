@@ -58,7 +58,7 @@ public class loginGUI extends JFrame implements ActionListener {
 
             InetAddress inet = null;
             try {
-                inet = InetAddress.getByName(/*"106.12.35.79"*/"127.0.0.1");
+                inet = InetAddress.getByName("106.12.35.79"/*"127.0.0.1"*/);
                 Socket client = new Socket(inet, 14514);
 
                 this.hide();
