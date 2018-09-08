@@ -85,7 +85,7 @@ public class Server {
                 /*if (other == this) {
                     continue;
                 }*/
-                other.send(msg);
+                other.send(msg + "(" + other.name);
             }
         }
     }

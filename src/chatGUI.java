@@ -24,6 +24,8 @@ public class chatGUI extends JFrame implements ActionListener, KeyListener {
     public chatGUI(Socket client, String name) {
 
         jsp.doLayout();
+        txtlog.setLineWrap(true);
+        txtlog.setWrapStyleWord(true);
 
         this.name.setText(client.getInetAddress().getHostAddress());
         this.id = name;
@@ -33,9 +35,11 @@ public class chatGUI extends JFrame implements ActionListener, KeyListener {
         p.setBorder(BorderFactory.createEtchedBorder());
         p.setLayout(new GridBagLayout());
 
+
         txtlog.setEditable(false);
-        LayoutUtil.add(p, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 0, 0, 1, 1, this.name, new Insets(10, 0, 5, 0));
-        LayoutUtil.add(p, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 1, 1, 0, 1, 1, 1, jsp, new Insets(5, 5, 50, 5));
+        LayoutUtil.add(p, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 0, 0, 4, 1, this.name, new Insets(10, 5, 5, 5));
+        LayoutUtil.add(p, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 1, 1, 0, 1, 4, 1, jsp, new Insets(5, 5, 50, 5));
+
 
         getContentPane().add(p, BorderLayout.CENTER);
 

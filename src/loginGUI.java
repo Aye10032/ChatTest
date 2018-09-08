@@ -17,6 +17,7 @@ public class loginGUI extends JFrame implements ActionListener {
 
     private JLabel inputJL = new JLabel("输入ID");
     private JTextField inputJF = new JTextField("");
+    private JTextField ipJF = new JTextField("127.0.0.1");
     private JButton cancel = new JButton("取消");
     private JButton next1 = new JButton("确定");
 
@@ -29,6 +30,8 @@ public class loginGUI extends JFrame implements ActionListener {
         LayoutUtil.add(p, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 0, 1, 1, 1, inputJL, new Insets(0, 50, 0, 10));
         LayoutUtil.add(p, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 1, 1, 5, 1, inputJF, new Insets(0, 10, 0, 50));
         LayoutUtil.add(p, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0, 1, 0, 2, 1, 1, new JLabel());
+        LayoutUtil.add(p, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0, 0, 2, 1, 1, new JLabel("服务器IP："), new Insets(0, 50, 0, 10));
+        LayoutUtil.add(p, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1, 0, 1, 2, 1, 1, ipJF, new Insets(0, 10, 0, 170));
 
         getContentPane().add(p, BorderLayout.CENTER);
 
@@ -58,7 +61,7 @@ public class loginGUI extends JFrame implements ActionListener {
 
             InetAddress inet = null;
             try {
-                inet = InetAddress.getByName("106.12.35.79"/*"127.0.0.1"*/);
+                inet = InetAddress.getByName(ipJF.getText());
                 Socket client = new Socket(inet, 14514);
 
                 this.hide();
