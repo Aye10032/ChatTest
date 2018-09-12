@@ -45,6 +45,13 @@ public class Server {
                 dos = new DataOutputStream(client.getOutputStream());
 
                 this.name = dis.readUTF();
+                for (Channel temp : clients){
+                    if (temp == this){
+                        send(temp.name + ", welcome!");
+                    }else {
+                        send(this.name + ", welcome!");
+                    }
+                }
                 send(this.name + ", welcome!");
                 sendOthers(this.name + " 加入了");
             } catch (IOException e) {
@@ -82,12 +89,11 @@ public class Server {
 
         private void sendOthers(String msg) {
             for (Channel other : clients) {
-                /*if (other == this) {
-                    continue;
-                }*/
-                other.send(msg + "(" + other.name);
+                other.send(msg);
             }
         }
+
+
     }
 
 }

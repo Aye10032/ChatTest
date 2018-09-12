@@ -1,27 +1,23 @@
 package util;
 
-import javax.swing.*;
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Socket;
 
 public class Send implements Runnable {
 
-    private static BufferedReader consol;
     private static DataOutputStream dos;
     private static boolean isRunning = true;
 
     @Override
     public void run() {
         while (isRunning) {
-            send(getText());
+
         }
     }
 
     public Send() {
-        consol = new BufferedReader(new InputStreamReader(System.in));
+
     }
 
     public Send(Socket client, String name) {
@@ -31,17 +27,8 @@ public class Send implements Runnable {
             send(name);
         } catch (IOException e) {
             isRunning = true;
-            CloseUtil.closeAll(dos, consol);
+            CloseUtil.closeAll(dos);
         }
-    }
-
-    private String getText() {
-        try {
-            return consol.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
     }
 
     public static void send(String msg) {
@@ -51,7 +38,7 @@ public class Send implements Runnable {
                 dos.flush();
             } catch (IOException e) {
                 isRunning = false;
-                CloseUtil.closeAll(dos, consol);
+                CloseUtil.closeAll(dos);
 
             }
         }
